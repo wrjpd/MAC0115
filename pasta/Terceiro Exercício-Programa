@@ -1,0 +1,129 @@
+import math
+
+DELTA_T = 0.1
+GRAVIDADE = 2
+
+# ======================================================================
+# FUNÇÕES OBRIGATÓRIAS
+# Implemente neste bloco as funções obrigatórias do EP3.
+# NÃO modifique os nomes e parâmetros dessas funções.
+# ======================================================================
+
+def leArquivo(nomeArquivo = 'entrada.txt'):
+    '''
+    Esta função lê um arquivo ('entrada.txt' por default) e
+    retorna uma lista de listas.
+    Entrada: arquivo cujo nome está armazenado em nomeArquivo.
+             Por default, é 'entrada.txt'
+    Saída: uma lista de listas, onde o primeiro elemento é uma
+           lista de inteiros [m, n] (dimensões da matriz) e os
+           elementos subsequentes são listas que representam as
+           característica lidas dos Pokémons na forma:
+                [nome, raio, x, y]
+    '''
+    return None
+
+
+def criaMatriz(m, n):
+    '''
+    Esta função cria e retorna uma lista de listas.
+    Entrada: dois inteiros que representam o número de linhas e
+             o número de colunas da matriz.
+    Saída: uma lista de m listas, cada uma com n elementos, todos
+           inicializados com zeros.
+    '''
+    return None
+
+
+def populaMatriz(matriz, pokemons):
+    '''
+    Esta função recebe uma matriz e uma lista contendo listas que
+    representam os pokémons na forma [nome, raio, x, y] e preenche-a
+    os pokémons conforme a representação retangular considerando os
+    raios da representação.
+    Entrada: matriz representada por uma lista de listas
+    Saída: A matriz fornecida é modificada.
+    '''
+    return None
+
+
+def preenchePokemon(matriz, id, x, y, raio):
+    '''
+    Esta função é auxiliar da função populaMatriz. Ela insere
+    um Pokémon na matriz de acordo com sua representação retangular
+    baseada no raio ao redor do ponto central (x,y)
+    Entrada: matriz representada por uma lista de listas
+             id é o número a preencher a matriz; para o
+             primeiro pokémon na lista (de índice zero),
+             usa-se 1 e assim subsequentemente.
+             x,y são as coordenadas do ponto central
+             raio é a distância a ser guardada a partir do
+             ponto central.
+    Saída: A matriz fornecida é modificada.
+    '''
+    return None
+
+
+def removePokemon(matriz, id, pokemons):
+    '''
+    Esta função recebe uma matriz, o numeral que representa o pokémon
+    a ser removido da matriz (id) e a lista contendo as listas que
+    representam pokémons, substituindo os numerais id por zero
+    Entrada: matriz representada por uma lista de listas;
+             id é o número a preencher a matriz, para o
+             primeiro pokémon na lista (de índice zero),
+             usa-se 1 e assim subsequentemente;
+             pokemons lista contendo as listas que representam pokémons.
+    Saída: A matriz fornecida é modificada.
+    '''
+    return None
+
+
+def imprimeMatriz(matriz):
+    '''
+    Esta função imprime a matriz dada.
+    Note que a matriz deve ser impressa com espelhamento vertical, 
+    pois a primeira linha representa o chão.
+    Entrada: matriz representada por uma lista de listas.
+    '''
+    return None
+
+
+def atualizaPosicao(x, y, vx, vy, dt=DELTA_T):
+    '''
+    Esta função calcula as atualizações das posições de x e y usando
+    as velocidades escalares respectivamente dadas por vx e vy.
+    Entrada: As posições x e y dadas em metros, as velocidades vx e
+    vy em metros por segundo e o intervalo de tempo em segundos.
+    Saída: Dois valores: o valor atualizado de x e o valor atualizado de y.
+    '''
+    return None
+
+
+def atualizaVelocidade(vx, vy, dt=DELTA_T):
+    '''
+    Esta função calcula e atualiza as velocidades vx e vy para o
+    próximo intervalo de tempo.
+    Entrada: As velocidades vx e vy em metros por segundo e o
+    intervalo de tempo em segundos.
+    Saída: Dois valores: o valor atualizado de vx e o valor atualizado de vy.
+    '''
+    return None
+
+
+def grau2Radiano(theta):
+    '''
+    Esta função converte o ângulo theta em graus para radianos.
+    Entrada: ângulo theta.
+    Saída: ângulo theta em radianos.
+    '''
+    return None
+
+
+
+def main():
+    nome = input("Digite o nome do arquivo: ")
+    N = int(input("Digite o numero N de pokebolas: "))
+
+ 
+main()
