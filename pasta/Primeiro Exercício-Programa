@@ -1,0 +1,152 @@
+#(x_t,y_t) = posição inicial do treinador
+
+
+#v_0 = (vx_b,vy_b) = velocidade do lançamento
+#(x_b,y_b) = posição da pokébola
+
+N=int(input(" Digite o numero N de pokebolas:  ")) #N=Número de pokébolas
+print("")
+g=int(input("Digite o valor da gravidade:  ")) #g = valor da atração gravitacional
+print("")
+x_p=int(input("Digite a coordenada x (inteiro >= 0) do pokemon:  ")) #posição do pokemon no eixo x
+print("")
+y_p =int(input("Digite a coordenada y (inteiro >= 0) do pokemon:  ")) #posição do pokemon no eixo y
+print("")
+dt=1
+vx_b=1
+i=1
+
+while i<=N:
+    print("")
+    print("Tentativa:%0d"%i,)
+    print("")
+    i=i+1
+    x_t=int(input("Digite a coordenada x (inteiro >= 0) do treinador:  ")) #posição do treinador no eixo x no instante inicial
+    print("")
+    y_t =int(input("Digite a coordenada y (inteiro >= 0) do treinador:  ")) #posição do treinador no eixo y no instante inicial
+    print("")
+    vy_b=int(input("Digite a componente y da velocidade de lancamento:  ")) #componente y da velocidade do lançamento
+    print("")
+    x_b=x_t
+    y_b=y_t
+    t=0
+
+    #Caso 1 : Treinador está num nível abaixo do pokemon
+    if y_t < y_p:
+
+        while vy_b >0 and x_b < x_p:
+            if t==0:
+                print("> t=%4d    vy=%4d    x=%4d    y=%4d"%(t,vy_b,x_b,y_b))        
+
+            else:
+                x_b =int( x_b + vx_b *dt) #função da posição da pokebola no eixo x
+                y_b = int(y_b + vy_b*dt - (g*dt**2)/2) #função da posição da pokebola no eixo y
+                vx_b = int(vx_b) #componente x da velocidade da pokebola
+                vy_b = int(vy_b - g*dt) #função da componente y da velocidade da pokebola
+    
+                print("> t=%4d    vy=%4d    x=%4d    y=%4d"%(t,vy_b,x_b,y_b))
+            t=t+1
+
+        
+
+        
+        while y_b>0  and x_b < x_p:
+       
+            x_b =int( x_b + vx_b *dt)
+            y_b = int(y_b + vy_b*dt - (g*dt**2)/2)
+            vx_b = int(vx_b)
+            vy_b = int(vy_b - g*dt)
+    
+            print("> t=%4d    vy=%4d    x=%4d    y=%4d"%(t,vy_b,x_b,y_b))
+            t=t+1
+            
+        if y_b==y_p and x_b==x_p:
+        
+            print("\nA pokebola atingiu o pokemon.")
+            i=N+1
+        
+        else:
+            print("\nA pokebola nao atingiu o pokemon.")
+
+    #Caso 2 : Treinador está no mesmo nível do pokemon
+    if y_t == y_p:
+        if x_b==x_p:
+             print("> t=%4d    vy=%4d    x=%4d    y=%4d"%(t,vy_b,x_b,y_b))
+             print("\nA pokebola atingiu o pokemon.")
+             i=N+1
+
+        else:
+            if g==0:
+                print("> t=%4d    vy=%4d    x=%4d    y=%4d"%(t,vy_b,x_b,y_b))
+                t=t+1
+                while  x_b < x_p:
+                    x_b =int( x_b + vx_b *dt)
+                    y_b = int(y_b + vy_b*dt - (g*dt**2)/2)
+                    vx_b = int(vx_b)
+                    vy_b = int(vy_b - g*dt)
+    
+                    print("> t=%4d    vy=%4d    x=%4d    y=%4d"%(t,vy_b,x_b,y_b)) 
+
+                    t=t+1
+            else:
+                print("> t=%4d    vy=%4d    x=%4d    y=%4d"%(t,vy_b,x_b,y_b))
+        
+                t=t+1
+                x_b =int( x_b + vx_b *dt)
+                y_b = int(y_b + vy_b*dt - (g*dt**2)/2)
+                vx_b = int(vx_b)
+                vy_b = int(vy_b - g*dt)
+                print("> t=%4d    vy=%4d    x=%4d    y=%4d"%(t,vy_b,x_b,y_b))
+                t=t+1
+                while y_b>y_p  and x_b < x_p:
+                    x_b =int( x_b + vx_b *dt)
+                    y_b = int(y_b + vy_b*dt - (g*dt**2)/2)
+                    vx_b = int(vx_b)
+                    vy_b = int(vy_b - g*dt)
+    
+                    print("> t=%4d    vy=%4d    x=%4d    y=%4d"%(t,vy_b,x_b,y_b)) 
+
+                    t=t+1
+
+    
+
+    
+            if y_b==y_p and x_b==x_p:
+        
+                print("\nA pokebola atingiu o pokemon.")
+                i=N+1
+        
+            else:
+                print("\nA pokebola nao atingiu o pokemon.")
+    
+
+
+
+
+
+    #Caso 3 :  Treinador está num nível acima do pokemon
+    if y_t>y_p:
+
+    
+        while y_b>0  and x_b < x_p:
+       
+            if t==0:
+                print("> t=%4d    vy=%4d    x=%4d    y=%4d"%(t,vy_b,x_b,y_b))        
+
+            else:
+                x_b =int( x_b + vx_b *dt)
+                y_b = int(y_b + vy_b*dt - (g*dt**2)/2)
+                vx_b = int(vx_b)
+                vy_b = int(vy_b - g*dt)
+    
+                print("> t=%4d    vy=%4d    x=%4d    y=%4d"%(t,vy_b,x_b,y_b)) 
+
+            t=t+1
+    
+        if y_b==y_p and x_b==x_p:
+        
+            print("\nA pokebola atingiu o pokemon.")
+            i=N+1
+        
+        else:
+            print("\nA pokebola nao atingiu o pokemon.")
